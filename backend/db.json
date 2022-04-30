@@ -1,0 +1,139 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Liga da Justiça - sSnydercut",
+      "director": "Zack Snyder2",
+      "genres": "Ação",
+      "year": "2022"
+    },
+    {
+      "id": 2,
+      "title": "Godzilla vs. Kong",
+      "director": "Adam Wingard",
+      "genres": "Ação",
+      "year": "2021"
+    },
+    {
+      "id": 3,
+      "title": "WandaVision",
+      "director": "Jac Schaeffer",
+      "genres": "Comédia",
+      "year": "2021"
+    },
+    {
+      "title": "Nome do Filme",
+      "director": "Nome do Diretor",
+      "year": "2021",
+      "genres": "Comédia",
+      "id": 4
+    },
+    {
+      "title": "Nome do Filme",
+      "director": "Nome do Diretor",
+      "year": "2021",
+      "genres": "Comédia",
+      "id": 5
+    },
+    {
+      "title": "a",
+      "director": "b",
+      "year": "d",
+      "genres": "c",
+      "id": 6
+    },
+    {
+      "title": "",
+      "director": "",
+      "year": "",
+      "genres": "",
+      "id": 7
+    },
+    {
+      "title": "",
+      "director": "",
+      "year": "2011",
+      "genres": "",
+      "id": 8
+    },
+    {
+      "title": "",
+      "director": "",
+      "year": "2010",
+      "genres": "",
+      "id": 9
+    },
+    {
+      "title": "",
+      "director": "a",
+      "year": "2016",
+      "genres": "a",
+      "id": 10
+    },
+    {
+      "title": "111",
+      "director": "222",
+      "year": "2015",
+      "genres": "333",
+      "id": 11
+    },
+    {
+      "title": "Lucas",
+      "director": "Lopes",
+      "year": "2018",
+      "genres": "comedia",
+      "id": 12
+    },
+    {
+      "title": "Larissa",
+      "director": "Vedoveto",
+      "year": "2010",
+      "genres": "20",
+      "id": 13
+    },
+    {
+      "title": "1",
+      "director": "1",
+      "year": "2011",
+      "genres": "1",
+      "id": 14
+    },
+    {
+      "title": "",
+      "director": "",
+      "year": "",
+      "genres": "",
+      "id": 15
+    }
+  ],
+  "series": [
+    {
+      "id": 1,
+      "title": "Serie 1",
+      "director": "Adam Wingard",
+      "genres": "Ação",
+      "year": "2021"
+    },
+    {
+      "id": 2,
+      "title": "Serie 2",
+      "director": "Adam Wingard",
+      "genres": "Ação",
+      "year": "2021"
+    },
+    {
+      "id": 3,
+      "title": "Serie 3",
+      "director": "Adam Wingard",
+      "genres": "Ação",
+      "year": "2021"
+    },
+    {
+      "title": "Nome da Série",
+      "director": "Nome do Diretor",
+      "year": "2022",
+      "genres": "Terror",
+      "id": 4
+    }
+  ]
+}

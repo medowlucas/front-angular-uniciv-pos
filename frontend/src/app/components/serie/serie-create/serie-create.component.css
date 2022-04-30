@@ -1,0 +1,9 @@
+.btn_add_series {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn_cancel_series {
+    display: flex;
+    justify-content: flex-start;
+}

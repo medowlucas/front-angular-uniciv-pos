@@ -1,0 +1,34 @@
+<mat-card class="card-home mat-elevation-z3">
+    <mat-card-title class="card-title">
+        Adicionar Filme
+    </mat-card-title>
+
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Título do Filme" name="title" [(ngModel)]="movie.title">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Diretor" name="director" [(ngModel)]="movie.director">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Gênero do Filme" name="genres" [(ngModel)]="movie.genres">
+        </mat-form-field>
+
+        <mat-label>Ano de Lançamento</mat-label>
+        <select matNativeControl [(ngModel)]="movie.year" name="year">
+          <option value="2022" selected></option>
+          <option *ngFor="let ano of arrayAnos" [value]="ano">
+            {{ano}}
+          </option>
+        </select>
+    </form>
+
+    <div>
+        <button mat-flat-button color="primary" (click)="this.createMovie()">Salvar</button>
+        <button mat-flat-button color="warn" (click)="this.cancel()">Cancelar</button>
+    </div>
+
+</mat-card>
+
