@@ -1,6 +1,8 @@
+import { MensagemService } from './../shared/mensagem.service';
 import { Movie } from './movie.model';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { EMPTY, Observable, pipe } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { API } from '../../app.api';
@@ -8,27 +10,55 @@ import { API } from '../../app.api';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MovieService {
 
-  constructor(private _http: HttpClient) { }
+  private pipeTratamentoError = pipe(
+    map((obj) => obj),
+    catchError( (e) => this.handleError(e))
+    );
+
+  constructor(private _http: HttpClient,
+    private _mensagemService: MensagemService) { }
 
   create(movie: Movie): Observable<Movie>{
-    return this._http.post<Movie>(`${API}/movies`, movie);
+    const URI = `${API}/movies`;
+    return this.pipeTratamentoError(this._http.post<Movie>(URI, movie));
   }
 
   index(): Observable<Movie[]>{
-    return this._http.get<Movie[]>(`${API}/movies`);
+    const URI = `${API}/movies`;
+    return this.pipeTratamentoError(this._http.get<Movie[]>(URI));
   }
 
   getById(id: string): Observable<Movie>{
-    return this._http.get<Movie>(`${API}/movies/${id}`);
+    const URI = `${API}/movies/${id}`;
+    return this.pipeTratamentoError(this._http.get<Movie>(URI));
   }
 
   delete(id: string): Observable<Movie>{
-    return this._http.delete<Movie>(`${API}/movies/${id}`);
+    const URI = `${API}/movies/${id}`;
+    return this.pipeTratamentoError(this._http.delete<Movie>(URI));
   }
 
-  update(movie: Movie): Observable<Movie>{
-    return this._http.put<Movie>(`${API}/movies/${movie.id}`, movie);
+  update(movie: Movie, id?: string): Observable<Movie>{
+    const ID = movie.id? movie.id : id;
+    const URI = `${API}/movies/${ID}`;
+    return this.pipeTratamentoError(this._http.put<Movie>(URI, movie));
   }
+
+  handleError(error: any): Observable<any> {
+    let errorMessage;
+
+    if(error.error instanceof ErrorEvent) {
+      errorMessage = error.errror.message;
+    } else {
+      errorMessage = `Error: ${error.status}\nMessage: ${error.message}`;
+    }
+
+    this._mensagemService.showMessage(errorMessage, true);
+
+    return EMPTY;
+  }
+  
 }

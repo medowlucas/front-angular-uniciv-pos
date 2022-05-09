@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Movie } from './../movie.model';
 import { MensagemService } from './../../shared/mensagem.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,28 +20,49 @@ export class MovieUpdateComponent implements OnInit {
     year: "",
     genres: "",
   };
-
+  
+  updateForm: FormGroup;
+  private id: string;
+  
   constructor(private _movieService: MovieService,
     private _router: Router,
     private _route: ActivatedRoute,
-    private _messagemService: MensagemService) { }
+    private _messagemService: MensagemService,
+    private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    const id = this._route.snapshot.paramMap.get("id");
-    this._movieService.getById(id).subscribe(movie=>{
-      this.movie = movie;
+    this.updateFormCreator();
+    this.id = this._route.snapshot.paramMap.get("id");
+    this._movieService.getById(this.id).subscribe(movie=>{
+      this.updateForm.patchValue(movie);
     })
   }
 
-  updateMovie(){
-    return this._movieService.update(this.movie).subscribe(movie=>{
-      this._messagemService.showMessage("Filme Atualizado com Sucesso!");
-      this._router.navigate(["/movies"])
+  updateFormCreator() {
+    this.updateForm = this._formBuilder.group( {
+      title: ["", [Validators.required]],
+      director: ["", [Validators.required]],
+      year: ["", [Validators.required]],
+      genres: ["", [Validators.required]],
     })
   }
 
-  cancel(){
+  updateMovie() {
+    if(this.updateForm.valid) {
+      return this._movieService.update(this.updateForm.value, this.id).subscribe(movie=>{
+        this._messagemService.showMessage("Filme Atualizado com Sucesso!");
+        this._router.navigate(["/movies"])
+      });
+    }
+  }
+
+  cancel() {
+    this._messagemService.showMessage("Cancelado", true);
     this._router.navigate(["/movies"])
   }
+
+  errorHandlingForm = (control: string, error: string) => {
+    return this.updateForm.controls[control].hasError(error)
+  };
 
 }

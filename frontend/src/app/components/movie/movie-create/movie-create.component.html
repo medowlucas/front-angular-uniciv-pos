@@ -3,30 +3,41 @@
         Adicionar Filme
     </mat-card-title>
 
-    <form>
+    <form [formGroup]="createForm" (ngSubmit)="createMovie()" id="form">
         <mat-form-field>
-            <input matInput placeholder="Título do Filme" name="title" [(ngModel)]="movie.title">
+            <input matInput placeholder="Título do Filme" formControlName="title">
+            <mat-error *ngIf="errorHandlingForm('title', 'required')">
+                O campo <strong>Título do Filme</strong> é obrigatório!
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Diretor" name="director" [(ngModel)]="movie.director">
+            <input matInput placeholder="Diretor" formControlName="director">
+            <mat-error *ngIf="errorHandlingForm('director', 'required')">
+                O campo <strong>diretor</strong> é obrigatório!
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Gênero do Filme" name="genres" [(ngModel)]="movie.genres">
+            <input matInput placeholder="Gênero do Filme" formControlName="genres">
+            <mat-error *ngIf="errorHandlingForm('genres', 'required')">
+                O campo <strong>Gênero do Filme</strong> é obrigatório!
+            </mat-error>
         </mat-form-field>
 
-        <mat-label>Ano de Lançamento</mat-label>
-        <select matNativeControl [(ngModel)]="movie.year" name="year">
-          <option value="2022" selected></option>
+        <mat-label style="margin-top: 10px;">Ano de Lançamento</mat-label>
+        <select matNativeControl formControlName="year">
           <option *ngFor="let ano of arrayAnos" [value]="ano">
             {{ano}}
           </option>
         </select>
+        <mat-error *ngIf="errorHandlingForm('year', 'required')">
+            O campo <strong>Ano de Lançamento</strong> é obrigatório!
+        </mat-error>
     </form>
 
     <div>
-        <button mat-flat-button color="primary" (click)="this.createMovie()">Salvar</button>
+        <button mat-flat-button color="primary" type="submit" form="form" [disabled]="!createForm.valid">Salvar</button>
         <button mat-flat-button color="warn" (click)="this.cancel()">Cancelar</button>
     </div>
 

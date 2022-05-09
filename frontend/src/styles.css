@@ -2,3 +2,17 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.snack-message-success {
+    background-color: #000;
+    color: #FFF;
+}
+
+.snack-message-error {
+    background-color: tomato;
+    color: #FFF;
+}
+
+.snack-message-error button {
+    background-color: #ffffffe6;
+}

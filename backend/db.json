@@ -38,8 +38,8 @@
     {
       "title": "a",
       "director": "b",
-      "year": "d",
-      "genres": "c",
+      "year": "2011",
+      "genres": "aa",
       "id": 6
     },
     {
@@ -104,6 +104,55 @@
       "year": "",
       "genres": "",
       "id": 15
+    },
+    {
+      "title": "",
+      "director": "",
+      "year": "",
+      "genres": "",
+      "id": 16
+    },
+    {
+      "title": "a",
+      "director": "a",
+      "year": "2010",
+      "genres": "a",
+      "id": 17
+    },
+    {
+      "title": "a",
+      "director": "a",
+      "year": "2011",
+      "genres": "a",
+      "id": 18
+    },
+    {
+      "title": "",
+      "director": "",
+      "year": "",
+      "genres": "",
+      "id": 19
+    },
+    {
+      "title": "",
+      "director": "",
+      "year": "",
+      "genres": "",
+      "id": 20
+    },
+    {
+      "title": "a",
+      "director": "a",
+      "year": "2010",
+      "genres": "a",
+      "id": 21
+    },
+    {
+      "title": "a",
+      "director": "a",
+      "year": "2010",
+      "genres": "a",
+      "id": 22
     }
   ],
   "series": [
@@ -134,6 +183,20 @@
       "year": "2022",
       "genres": "Terror",
       "id": 4
+    },
+    {
+      "title": "Nome da Série",
+      "director": "Nome do Diretor",
+      "year": "2022",
+      "genres": "Terror",
+      "id": 5
+    },
+    {
+      "title": "Nome da Série",
+      "director": "Nome do Diretor",
+      "year": "2022",
+      "genres": "Terror",
+      "id": 6
     }
   ]
 }
